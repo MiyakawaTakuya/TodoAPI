@@ -7141,7 +7141,7 @@
       "outputPath": "/Users/miyagawatakuya/G's Task/C#/TodoApi/TodoApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/miyagawatakuya/.nuget/NuGet/NuGet.Config"
+        "/Users/miyagawatakuya/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
