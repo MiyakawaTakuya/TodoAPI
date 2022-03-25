@@ -63,11 +63,10 @@ namespace TodoApi.Controllers
         // PUT: api/TodoItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        //public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
-        public async Task<IActionResult> PutTodoItem(string name, TodoItem todoItem)
+        //public async Task<IActionResult> PutTodoItem(string name, TodoItem todoItem)
+        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
         {
-            //if (id != todoItem.Id)
-            if (name != todoItem.Name)
+            if (id != todoItem.Id)
             {
                 return BadRequest();
             }
@@ -80,7 +79,7 @@ namespace TodoApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TodoItemExists(name))
+                if (!TodoItemExists(id))
                 {
                     return NotFound();
                 }
@@ -125,9 +124,9 @@ namespace TodoApi.Controllers
         }
 
         //private bool TodoItemExists(long id)
-        private bool TodoItemExists(string name)
+        private bool TodoItemExists(long id)
         {
-            return _context.TodoItems.Any(e => e.Name == name);
+            return _context.TodoItems.Any(e => e.Id == id);
         }
     }
 }

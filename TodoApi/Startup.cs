@@ -31,8 +31,12 @@ namespace TodoApi
 
             services.AddControllers();
 
+            //DB接続部分
+            //appsetting.jsonファイルに記述されている設定情報を取得する. 
             services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
+                                               opt.UseSqlite(Configuration.GetConnectionString("TodoContext")));
+            //services.AddDbContext<TodoContext>(opt =>
+            //                                   opt.UseInMemoryDatabase("TodoList"));
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoApi", Version = "v1" });
